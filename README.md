@@ -23,15 +23,18 @@ Project is created with:
 To run this project, install it locally using npm:
 
 ```
-$ cd ../<project-name>
-$ docker-compose up
+cd ../<project-name>
+virtualenv env --python=python3.9 # Recomended
+source env/bin/activate # Recomended
+pip install -r requirements.txt
+python run.py
 ```
 
 ## Flask
 
 ### Project Structure
 
-### DATABASE SET UP
+### DATABASE SET UP - Flask-migrations
 
 #### Flask_migrate
 Flask extension that is used to migrate sqlalchemy based database models. When adding columns, migrate will compare the current version and the new version and create a script to migrate from one to the other.
