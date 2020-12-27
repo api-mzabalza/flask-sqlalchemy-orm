@@ -91,16 +91,3 @@ project/
 ```
 
 All things are grouped by its function. If it hehaves as a model, put it in models folder; if it behaves as a route, put it in routes folder. Build a create_app factory in project/__init__.py, and init_app of everything:
-
-
-### Before running the server set up db if tables are not yet created
-
-* Enter python Interpretor
-```
-python
-```
-
-```python
-from app import db
-db.create_all()
-```
