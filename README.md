@@ -1,4 +1,4 @@
-# FLASK vs FASTAPI | ORM with SQLAlchemy
+# FLASK | ORM with SQLAlchemy
 [Work in progress...]
 
 
@@ -8,8 +8,13 @@
 * [Setup](#setup)
 * [Flask](#flask)
 * [Project Structure](#project-structure)
+* [Models](#project-structure)
+* [Schemas](#project-structure)
 * [Inspiration](#inspiration)
 
+## General info
+
+Simple Python Flask CRUD Application based on Flask-SQLAlchemy. In this application we are connecting a database where we add, retrieve, update and delete users. The app also handles users authentication through json web tokens.
 
 ## Technologies
 Project is created with:
@@ -17,27 +22,27 @@ Project is created with:
   * Flask-SQLAalchemy: Database ORM
   * Flask-Migrate: Database updates
   * Flask_Bcrypt: Encrypt passwords
-  * Flask-Marshmallow: Helps with serializing and deserializing objects. Transform our SQLAlchemy objects into readable JSON data
+  * Flask-Marshmallow: Helps with serializing and deserializing objects. Transform our SQLAlchemy objects into readable JSON data and helps to validate users data inputs.
 
 ## Setup
-To run this project, install it locally using npm:
+To run this project clone the project and:
 
 ```
-$ cd ../<project-name>
-$ docker-compose up
+cd ../<project-name>
+virtualenv env --python=python3.9 # Recomended
+source env/bin/activate # Recomended
+pip install -r requirements.txt
+python run.py
 ```
 
-## Flask
+## Project Structure
 
-### Project Structure
-
-### DATABASE SET UP
-
+### DATABASE SET UP - Flask-migrate
 #### Flask_migrate
 Flask extension that is used to migrate sqlalchemy based database models. When adding columns, migrate will compare the current version and the new version and create a script to migrate from one to the other.
 Once you have data it becames very usefull extension.
 
-##### Commands
+#### Commands
 ```
 python migrate.py db init # First time to create unexisting tables
 ```
@@ -89,15 +94,7 @@ project/
 
 All things are grouped by its function. If it hehaves as a model, put it in models folder; if it behaves as a route, put it in routes folder. Build a create_app factory in project/__init__.py, and init_app of everything:
 
+## Models
 
-### Before running the server set up db if tables are not yet created
+## Schemas
 
-* Enter python Interpretor
-```
-python
-```
-
-```python
-from app import db
-db.create_all()
-```
