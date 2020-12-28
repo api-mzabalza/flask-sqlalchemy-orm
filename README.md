@@ -1,4 +1,4 @@
-# FLASK | ORM with SQLAlchemy
+# FLASK - API | ORM with SQLAlchemy
 
 
 <p align="center"><img  src="readme/image1.png"></p>
