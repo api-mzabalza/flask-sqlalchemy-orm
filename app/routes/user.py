@@ -1,13 +1,45 @@
 from flask import Blueprint, request
 from app import db, bcrypt
 from app.models.user import User
-from app.schemas.user import user_registration_schema, user_delete_schema, user_edit_schema
-from sqlalchemy.exc import SQLAlchemyError
+from app.schemas.user import user_registration_schema, user_delete_schema, user_edit_schema, user_schema
+from app.common.decorators import token_required
 
 users = Blueprint('users', __name__)
 
+
+
+@users.route("/<user_id>", methods=['GET'])
+def getUserByIdError(user_id):
+    if type(user_id) != int:
+        return {
+            'status': False,
+            'message': 'Wrong user id. Needs to be integer'
+    }
+
+
+@users.route("/<int:user_id>", methods=['GET'])
+@token_required
+def getUserById(loged_user, user_id):
+    '''
+    Gell user by id
+    '''
+    # print(user_id)
+    rtn = User.query.filter_by(id=user_id).all()
+    if not rtn:
+        return {
+            'status': False,
+            'message': 'Wrong user id'
+        }
+
+    user = user_registration_schema.dump(rtn[0])
+    
+    return {
+        'status': True,
+        'user': user
+    }
+
 @users.route("/", methods=['GET'])
-def get():
+def getAll():
     '''
     Gell all users
     '''
@@ -17,6 +49,8 @@ def get():
         'status': True,
         'data': data
     }
+
+
 
 @users.route("/", methods=['DELETE'])
 def delete():
@@ -46,7 +80,7 @@ def delete():
     }
     
 
-
+@token_required
 @users.route("/", methods=['POST'])
 def add():
     '''

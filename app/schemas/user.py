@@ -1,5 +1,11 @@
 from marshmallow import fields, Schema
 
+class UserSchema(Schema):
+    id = fields.Int(dump_only=True)
+    email = fields.Str(required=True)
+    password = fields.Str(required=True)
+    name = fields.Str(required=True)
+    phone = fields.Str(required=True)
 
 class UserRegistrationSchema(Schema):
     id = fields.Int(dump_only=True)
@@ -23,7 +29,7 @@ class UserEditSchema(Schema):
     password = fields.Str()
 
 
-
+user_schema = UserSchema()
 user_edit_schema = UserEditSchema()
 user_delete_schema = UserDeleteSchema()
 user_registration_schema = UserRegistrationSchema()
