@@ -1,4 +1,8 @@
 # FLASK | ORM with SQLAlchemy
+
+
+<p align="center"><img  src="readme/image1.png"></p>
+
 [Work in progress...]
 
 
