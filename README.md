@@ -1,5 +1,6 @@
-# FLASK - API | ORM with SQLAlchemy
-
+<h1 align="center">
+	FLASK - API | ORM with SQLAlchemy
+</h1>
 
 <p align="center"><img  src="readme/image1.png"></p>
 
@@ -16,7 +17,7 @@
 * [Schemas](#project-structure)
 * [Inspiration](#inspiration)
 
-## General info
+## 🗣️ About
 
 Simple Python Flask CRUD Application based on Flask-SQLAlchemy. In this application we are connecting a database where we add, retrieve, update and delete users. The app also handles users authentication through json web tokens.
 
@@ -31,7 +32,7 @@ Project is created with:
 ## Setup
 To run this project clone the project and:
 
-```
+```shell
 cd ../<project-name>
 virtualenv env --python=python3.9 # Recomended
 source env/bin/activate # Recomended
@@ -47,13 +48,13 @@ Flask extension that is used to migrate sqlalchemy based database models. When a
 Once you have data it becames very usefull extension.
 
 #### Commands
-```
+```shell
 python migrate.py db init # First time to create unexisting tables
 ```
-```
+```shell
 python migrate.py db migrate
 ```
-```
+```shell
 python migrate.py db upgrade
 ```
 
@@ -69,7 +70,7 @@ benefits:
 ### Functional Based Structure
 
 There are many ways to setup your project folder structure. One is by its function. For instance:
-```
+```shell
 project/
   __init__.py
   models/
