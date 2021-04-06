@@ -70,7 +70,7 @@ benefits:
 ### Functional Based Structure
 
 There are many ways to setup your project folder structure. One is by its function. For instance:
-```shell
+```
 project/
   __init__.py
   models/
